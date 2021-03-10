@@ -14,7 +14,7 @@ The raw dataset comes in train.csv, test.csv and sample_submission.csv including
 
 First, I started with the Exploratory Data Analysis (EDA).
 
-[saleprice](https://user-images.githubusercontent.com/26305084/110682726-43177900-81a9-11eb-9de3-0047b689790d.jpeg)
+![saleprice](https://user-images.githubusercontent.com/26305084/110682726-43177900-81a9-11eb-9de3-0047b689790d.jpeg)
 
 
 ### 3. Develop:
