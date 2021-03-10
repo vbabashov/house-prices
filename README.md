@@ -12,7 +12,7 @@ The objective of this ML exercise is to predict house prices using the Ames, Iow
 
 The raw dataset comes in train.csv, test.csv and sample_submission.csv including the target values for the test test. Since, the purpose of this exercise is not a competation, I merged the csv files into one file for easier pre-processing steps.
 
-First, I started with the Exploratory Data Analysis (EDA).
+First, I started with the Exploratory Data Analysis (EDA). From the Figure below it is evident that SalePrice variable is skewed to the right and there are several outliers.
 
 ![saleprice](https://user-images.githubusercontent.com/26305084/110682726-43177900-81a9-11eb-9de3-0047b689790d.jpeg)
 
