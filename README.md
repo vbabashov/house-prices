@@ -1,3 +1,4 @@
+![scatter](https://user-images.githubusercontent.com/26305084/110687238-49f4ba80-81ae-11eb-828c-6d2fc1ac9b98.jpeg)
 # house-prices
 House Prices (Python) - work in progress
 
@@ -32,7 +33,7 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
 ![boxplots](https://user-images.githubusercontent.com/26305084/110686259-40b71e00-81ad-11eb-8f2f-e31554a4a769.jpeg)
 
 
-![scatter](https://user-images.githubusercontent.com/26305084/110687027-0dc15a00-81ae-11eb-84c3-214301ca4070.jpeg)
+![scatter](https://user-images.githubusercontent.com/26305084/110687293-59740380-81ae-11eb-90c1-71de815665a4.jpeg)
 
 
 ![heatmap](https://user-images.githubusercontent.com/26305084/110687048-1580fe80-81ae-11eb-9ca9-839ecb3bdd2e.jpeg)
