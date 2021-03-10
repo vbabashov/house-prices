@@ -32,6 +32,12 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
 ![boxplots](https://user-images.githubusercontent.com/26305084/110686259-40b71e00-81ad-11eb-8f2f-e31554a4a769.jpeg)
 
 
+![scatter](https://user-images.githubusercontent.com/26305084/110687027-0dc15a00-81ae-11eb-84c3-214301ca4070.jpeg)
+
+
+![heatmap](https://user-images.githubusercontent.com/26305084/110687048-1580fe80-81ae-11eb-9ca9-839ecb3bdd2e.jpeg)
+
+
 ### 3. Develop:
 
 
