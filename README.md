@@ -13,7 +13,7 @@ The objective of this ML exercise is to predict house prices using the Ames, Iow
 
 ### 2. Discover: 
 
--Obtain data:
+- Obtain data:
 
 The raw dataset comes in train.csv, test.csv and sample_submission.csv including the target values for the test test. Since, the purpose of this exercise is not a competation, I merged the csv files into one file for easier pre-processing steps.
  
