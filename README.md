@@ -1,5 +1,3 @@
-![img_6421](https://user-images.githubusercontent.com/26305084/110722566-817c5a80-81e0-11eb-95a8-e73f1bbe574d.jpeg)
-
 # house-prices
 House Prices (Python) - work in progress
 
@@ -20,7 +18,7 @@ The raw dataset comes in train.csv, test.csv and sample_submission.csv including
  
 - Clean data:
 
-There are missing values in this dataset. Four of these columns 'Alley', 'PoolQC', 'Fence', 'MiscFeature' have more than 80% of the values missing, thus we can consider dropping them from the dataset in the modelling phase.
+There are 81 columns in this dataset. Four of these columns 'Alley', 'PoolQC', 'Fence', 'MiscFeature' have more than 80% of the values missing, thus, I'll consider dropping them from the dataset in the modelling phase.
 
 - Explore data:
 
@@ -48,6 +46,12 @@ Finally, the heatmap show correlation between the features and between features 
 As a baseline, I'll built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of \textbf{30175.61} with the test dataset.
 
 - Hypothesize solutions:
+
+To obtain better predictive performance compared to baseline, I'll build tree-based models as following:
+
+- Random Forest
+- Xgboost
+- LightGBM
 
 
 ### 3. Develop:
