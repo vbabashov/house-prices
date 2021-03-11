@@ -1,3 +1,4 @@
+![img_6421](https://user-images.githubusercontent.com/26305084/110722566-817c5a80-81e0-11eb-95a8-e73f1bbe574d.jpeg)
 
 # house-prices
 House Prices (Python) - work in progress
