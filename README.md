@@ -36,7 +36,7 @@ The box-plots below reveal the spread of the SalePrices across the category leve
 
 Scatter plots show that SalePrie increase with LotFrontage, LotArea, BsmtFinSF1, GrLivArea, 1sfFlrSF and TotalBsmtSF variables.
 
-![scatter](https://user-images.githubusercontent.com/26305084/110687238-49f4ba80-81ae-11eb-828c-6d2fc1ac9b98.jpeg)
+![scatter](https://user-images.githubusercontent.com/26305084/110721751-1ed68f00-81df-11eb-9608-d8d295b1031b.jpeg)
 
 Finally, the heatmap show correlation between the features and between features and SalePrice.
 
