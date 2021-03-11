@@ -30,11 +30,15 @@ To explore the data, we can create visualizations. First, let's take a look at t
 
 Next, we can take a look at features. There are ordinal, nominal and numeric (continious or integer) variables. To explore the relationship between SalePrice and numeric feautures, I'll use scatter plots, and between SalePrice and categoric features, I'll use scatter plots.  
 
-The box-plots below reveal the spread of the SalePrices across the category levels. We see an inceasing trend as the Overall Qual and Overall Cond of the house increase.
+The box-plots below reveal the spread of the SalePrices across the category levels. We see an inceasing trend as the Overall Qual and Overall Cond of the house increase. Some of the categorical levels seem important while others don't seem play any role.
 
 ![boxplots](https://user-images.githubusercontent.com/26305084/110686259-40b71e00-81ad-11eb-8f2f-e31554a4a769.jpeg)
 
+Scatter plots show that SalePrie increase with LotFrontage, LotArea, BsmtFinSF1, GrLivArea, 1sfFlrSF and TotalBsmtSF variables.
+
 ![scatter](https://user-images.githubusercontent.com/26305084/110687238-49f4ba80-81ae-11eb-828c-6d2fc1ac9b98.jpeg)
+
+Finally, the heatmap show correlation between the features and between features and SalePrice.
 
 ![heatmap](https://user-images.githubusercontent.com/26305084/110687048-1580fe80-81ae-11eb-9ca9-839ecb3bdd2e.jpeg)
 
