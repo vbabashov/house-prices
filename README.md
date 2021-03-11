@@ -42,6 +42,10 @@ Finally, the heatmap show correlation between the features and between features 
 
 ![heatmap](https://user-images.githubusercontent.com/26305084/110687048-1580fe80-81ae-11eb-9ca9-839ecb3bdd2e.jpeg)
 
+- Set baseline outcomes:
+
+- Hypothesize solutions:
+
 
 ### 3. Develop:
 
