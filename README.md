@@ -18,7 +18,7 @@ The raw dataset comes in train.csv, test.csv and sample_submission.csv including
  
 - Clean data:
 
-There are 81 columns in this dataset. Four of these columns 'Alley', 'PoolQC', 'Fence', 'MiscFeature' have more than 80% of the values missing, thus, I'll consider dropping them from the dataset in the modelling phase.
+There are 81 columns in this dataset. Four of these columns 'Alley', 'PoolQC', 'Fence', 'MiscFeature' have more than 80% of the values missing, thus, I'll consider dropping them from the dataset in the modelling phase. 
 
 - Explore data:
 
@@ -33,7 +33,7 @@ The box-plots below reveal the spread of the SalePrices across the category leve
 
 ![boxplots](https://user-images.githubusercontent.com/26305084/110686259-40b71e00-81ad-11eb-8f2f-e31554a4a769.jpeg)
 
-Scatter plots show that SalePrie increase with LotFrontage, LotArea, BsmtFinSF1, GrLivArea, 1sfFlrSF and TotalBsmtSF variables.
+Scatter plots show that SalePrie increase with LotFrontage, LotArea, BsmtFinSF1, GrLivArea, 1sfFlrSF and TotalBsmtSF variables. According to the data description file, GrLivArea with higher than 4000 sq feet constitute unusual observations, so sales (a total of five) with this condition can be dropped from the dataset. 
 
 ![scatter](https://user-images.githubusercontent.com/26305084/110721751-1ed68f00-81df-11eb-9608-d8d295b1031b.jpeg)
 
@@ -43,7 +43,7 @@ Finally, the heatmap show correlation between the features and between features 
 
 - Set baseline outcomes:
 
-As a baseline, I'll built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset.
+As a baseline, I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset.
 
 - Hypothesize solutions:
 
