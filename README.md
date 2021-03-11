@@ -44,11 +44,19 @@ Finally, the heatmap show correlation between the features and between features 
 
 - Set baseline outcomes:
 
+As a baseline, I'll built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of \textbf{30175.61} with the test dataset.
+
 - Hypothesize solutions:
 
 
 ### 3. Develop:
 
-
+- Engineer features:
+- Create Models
+- Test models
+- Select best models
 
 ### 4. Deploy:
+- Automate pipeline
+- Deploy solution
+- Measure efficacy
