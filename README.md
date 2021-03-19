@@ -1,5 +1,4 @@
 
-
 # house-prices
 House Prices (Python) - work in progress
 
@@ -42,7 +41,7 @@ Scatter plots show that SalePrie increase with LotFrontage, LotArea, BsmtFinSF1,
 
 Finally, the heatmap show correlation between the features and between features and SalePrice.
 
-![heatmap](https://user-images.githubusercontent.com/26305084/111833040-f417c500-88c7-11eb-873f-2834facffdd0.jpeg)
+![heatmap](https://user-images.githubusercontent.com/26305084/111834061-71900500-88c9-11eb-88ed-b6dd1bdcd737.jpeg)
 
 - Set baseline outcomes:
 
