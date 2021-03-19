@@ -1,3 +1,4 @@
+
 # house-prices
 House Prices (Python) - work in progress
 
@@ -31,11 +32,12 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
 
 The box-plots below reveal the spread of the SalePrices across the category levels. We see an inceasing trend as the Overall Qual and Overall Cond of the house increase. Some of the categorical levels seem important while others don't seem play any role.
 
-![boxplots](https://user-images.githubusercontent.com/26305084/110686259-40b71e00-81ad-11eb-8f2f-e31554a4a769.jpeg)
+![boxplots](https://user-images.githubusercontent.com/26305084/111832968-d9455080-88c7-11eb-9016-cd800720cce4.jpeg)
 
 Scatter plots show that SalePrie increase with LotFrontage, LotArea, BsmtFinSF1, GrLivArea, 1sfFlrSF and TotalBsmtSF variables. According to the data description file, GrLivArea with higher than 4000 sq feet constitute unusual observations, so sales (a total of five) with this condition can be dropped from the dataset. 
 
-![scatter](https://user-images.githubusercontent.com/26305084/110721751-1ed68f00-81df-11eb-9608-d8d295b1031b.jpeg)
+![scatter](https://user-images.githubusercontent.com/26305084/111832940-cdf22500-88c7-11eb-8522-546c7244c420.jpeg)!
+
 
 Finally, the heatmap show correlation between the features and between features and SalePrice.
 
