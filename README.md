@@ -94,7 +94,7 @@ Best Parameters: {'reg3__colsample_bytree': 0.3,
 
 ### 4. Deploy:
 - Automate pipeline
-- 
+
 At this point, I fit the best model on the entire dataset and generate the predictions on a new dataset.
 
 - Deploy solution
