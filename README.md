@@ -40,7 +40,7 @@ Finally, the heatmap show correlation between the features and between features 
 
 - Set baseline outcomes: 
 
-As a baseline, shown in a [separate notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. MAE  for the Baseline Model: 24139.18
+As a baseline, shown in a [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. MAE  for the Baseline Model: 24139.18
 
 - Hypothesize solutions: 
 
@@ -50,7 +50,7 @@ It is my contention that we can obtain better predictive performance compared to
 - Xgboost
 - LightGBM
 
-These (bagging and boosting) models have shown to be successful in different applications. Therefore, I choose them as possible candidate models to explore. The details of Discover stage, can be found in this [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/EDA.ipynb)
+These (bagging and boosting) models have shown to be successful in different applications. Therefore, I choose them as possible candidate models to explore. The details of Discover stage, can be found in this [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/EDA.ipynb).
 
 ### 3. Develop:
 
@@ -94,8 +94,8 @@ Best Parameters: {'reg3__colsample_bytree': 0.3,
 
 ### 4. Deploy:
 - Automate pipeline
-
-At the point, I fit the best model on the entire dataset.
+- 
+At this point, I fit the best model on the entire dataset and generate the predictions on a new dataset.
 
 - Deploy solution
 
