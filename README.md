@@ -62,7 +62,22 @@ I created models using the Pipelines to chain Polinomial Features, Feature Selec
 
 - Test models
 
-I used nested cross-validation approach (5x2Cv) to compare and find the best performing algorithm and set of parameters. Analysis showed that LightGBM performs relatively well.
+I used nested cross-validation approach (5x2Cv) to compare and find the best performing algorithm. Analysis showed that LightGBM performs relatively well.
+
+
+Train MAE: 10776.56
+
+Test MAE: 16447.13
+
+Train R2: 0.95
+
+Test R2: 0.86
+
+We can see overfitting due to difference model train and test performance.
+
+- Select best models
+
+We then performed the GridSearch hyper-parameter tuning on the LightGBM to determine the best set of parameters.
 
 Best CV Score: 0.09
 
@@ -70,14 +85,6 @@ Best Parameters: {'reg3__colsample_bytree': 0.3,
                           'reg3__max_depth': 6, 
                       'reg3__n_estimators': 100, 
                          'reg3__num_leaves': 8}
-
-Train MAE: 10776.56
-Test MAE: 16447.13
-
-Train R2: 0.95
-Test R2: 0.86
-
-- Select best models
 
 ### 4. Deploy:
 - Automate pipeline
