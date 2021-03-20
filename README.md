@@ -29,13 +29,13 @@ To explore the data, we can create visualizations. First, let's take a look at t
 
 Next, we can take a look at features. There are ordinal, nominal and numeric (continious or integer) variables. To explore the relationship between SalePrice and numeric feautures, I'll use scatter plots, and between SalePrice and categoric features, I'll use scatter plots.  
 
-The box-plots below reveal the spread of the SalePrices across the category levels. Mean sale price and distribuition of prices is similar. We see an inceasing trend as the Overall Qual and Overall Cond of the house increase. For some variables, while some categories are rare, most of the categorical levels don't seem to explain the difference in price.
+The box-plots below reveal the spread of the SalePrices across the category levels. Mean sale price and distribuition of prices are similar for most of the variables. We see an inceasing trend as the OverallQual and OverallCond of the house increase. For some variables, while some categories are rare, most of the categorical levels don't seem to explain the difference in price.
 
 ![boxplots](https://user-images.githubusercontent.com/26305084/111832968-d9455080-88c7-11eb-9016-cd800720cce4.jpeg)
 
 Scatter plots show that SalePrie increases with LotFrontage, LotArea, BsmtFinSF1, BsmtFinSF2, TotalBsmtSF, 1sfFlrSF, 2ndFlrSF, GrLivArea and GarageArea variables.
 
-![scatter](https://user-images.githubusercontent.com/26305084/111832940-cdf22500-88c7-11eb-8522-546c7244c420.jpeg)!
+![scatter](https://user-images.githubusercontent.com/26305084/111832940-cdf22500-88c7-11eb-8522-546c7244c420.jpeg)
 
 Finally, the heatmap show correlation between the features and between features and SalePrice.According to the heatmap, house SalePrice is correlated with GrLivArea, GarageCars, GarageArea, TotalBsmtSF, 1stFlrSF (Pearson Correlation Cofficient >=0.6). There seems to be a weaker correlation between SalePrice and rest of the features (Pearson Correlation Cofficient <= 0.5).
 
@@ -43,20 +43,26 @@ Finally, the heatmap show correlation between the features and between features 
 
 - Set baseline outcomes:
 
-As a baseline, I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset.
+As a [baseline](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset.
+
+- MAE  for the Baseline Model: 24139.18
 
 - Hypothesize solutions:
 
-To obtain better predictive performance compared to baseline, I'll build tree-based models as following:
+It is my contention that we can obtain better predictive performance compared to baseline using the tree-based models along with feature engineering as following:
 
 - Random Forest
 - Xgboost
 - LightGBM
 
+These (bagging and boosting) models have shown to be successful in different applications. Therefore, I choose them as possible candidate models to explore.
 
 ### 3. Develop:
 
 - Engineer features:
+
+Feature engineering is critical to succesful ML applications. Here, I use feature_engine Python library and sklearn's prepocessing and feature selection.
+
 - Create Models
 - Test models
 - Select best models
