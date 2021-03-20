@@ -40,7 +40,9 @@ Finally, the heatmap show correlation between the features and between features 
 
 - Set baseline outcomes: 
 
-As a baseline, shown in a [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. MAE  for the Baseline Model: 24139.18
+As a baseline, shown in a [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. 
+
+- MAE  for the Baseline Model: 24139.18
 
 - Hypothesize solutions: 
 
