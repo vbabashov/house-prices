@@ -103,6 +103,8 @@ Finally, I save the predictions in a csv file, and save the model, predictions a
 
 ![test](https://user-images.githubusercontent.com/26305084/111883088-7b7c3b80-898f-11eb-821a-3772c9aa5a85.jpeg)
 
+As we can see, LotArea, TotalArea, GrLivArea, OverallCond and OverallQual are the top 5 features with the most predictive power.
+
 - Measure efficacy
 
 I'm going to skip this step, since I don't have the actual outcomes of the unseen test data.
