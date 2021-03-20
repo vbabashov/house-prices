@@ -50,7 +50,7 @@ It is my contention that we can obtain better predictive performance compared to
 - Xgboost
 - LightGBM
 
-These (bagging and boosting) models have shown to be successful in different applications. Therefore, I choose them as possible candidate models to explore.
+These (bagging and boosting) models have shown to be successful in different applications. Therefore, I choose them as possible candidate models to explore. The details of Discover stage, can be found in this [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/EDA.ipynb)
 
 ### 3. Develop:
 
@@ -69,7 +69,6 @@ I created models using the Pipelines to chain Polinomial Features, Feature Selec
 - Test models
 
 I used nested cross-validation approach (5x2Cv) to compare and find the best performing algorithm. Analysis showed that LightGBM performs relatively well.
-
 
 Train MAE: 10776.56
 
@@ -91,6 +90,7 @@ Best Parameters: {'reg3__colsample_bytree': 0.3,
                           'reg3__max_depth': 6, 
                       'reg3__n_estimators': 100, 
                          'reg3__num_leaves': 8}
+                         
 
 ### 4. Deploy:
 - Automate pipeline
@@ -104,3 +104,7 @@ Finally, I save the predictions in a csv file, and save the model, predictions a
 ![test](https://user-images.githubusercontent.com/26305084/111883088-7b7c3b80-898f-11eb-821a-3772c9aa5a85.jpeg)
 
 - Measure efficacy
+
+I'm going to skip this step, since I don't have the actual outcomes of the unseen test data.
+
+Details of the Develop and Deploy stages can be found in a separate [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb).                    
