@@ -40,7 +40,7 @@ Finally, the heatmap show correlation between the features and between features 
 
 - Set baseline outcomes: 
 
-As a [baseline](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. MAE  for the Baseline Model: 24139.18
+As a baseline, shown in a [separate notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. MAE  for the Baseline Model: 24139.18
 
 - Hypothesize solutions: 
 
@@ -78,7 +78,7 @@ Train R2: 0.95
 
 Test R2: 0.86
 
-We can see overfitting due to difference model train and test performance.
+We can see overfitting due to diffences in train and test model predictive performance.
 
 - Select best models
 
@@ -107,4 +107,6 @@ Finally, I save the predictions in a csv file, and save the model, predictions a
 
 I'm going to skip this step, since I don't have the actual outcomes of the unseen test data.
 
-Details of the Develop and Deploy stages can be found in a separate [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb).                    
+The details as well as full implementation of the Develop and Deploy stages can be found in a separate [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb).    
+
+# Concluding Remarks
