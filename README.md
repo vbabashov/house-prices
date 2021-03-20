@@ -50,18 +50,8 @@ These (bagging and boosting) models have shown to be successful in different app
 ### 3. Develop:
 
 - Engineer features: 
-Feature engineering is critical to succesful ML applications. Here, I use feature_engine Python library and sklearn's prepocessing and feature selection. There are ordinal variables in the dataset. I used ordinal encoding to encode the variables.
-
-ordinal = ('LotShape', 'Utilities', 'LandSlope', 'OverallQual', 'OverallCond', 'ExterQual', 'ExterCond', 'BsmtQual', 'BsmtCond', 'BsmtExposure', 
-             'BsmtFinType1', 'BsmtFinType2', 'HeatingQC', 'Electrical', 'KitchenQual','Functional', 'FireplaceQu', 'GarageFinish', 'GarageQual',     
-             'GarageCond', 'PavedDrive')     
-          
-Nominal variables have a lot of categories. Some of these categories don't have any observation. In the preliminary analysis, I noted that one-hot encoding results in poor model peformance due to many columns with sparsity and some categories being having rare values. Instead, I looked at mean Sale Price for each category and encoded them in an increasing order. This showed better model predictive performance.
+Feature engineering is critical to succesful ML applications. Here, I use feature_engine Python library and sklearn's prepocessing and feature selection. There are ordinal variables in the dataset. I used ordinal encoding to encode the variables. Nominal variables have a lot of categories. Some of these categories don't have any observation. In the preliminary analysis, I noted that one-hot encoding results in poor model peformance due to many columns with sparsity and some categories being having rare values. Instead, I looked at mean Sale Price for each category and encoded them in an increasing order. This showed better model predictive performance.
  
-nominal = ('MSSubClass', 'MSZoning', 'Street', 'LandContour', 'LotConfig', 'Neighborhood', 'Condition1', 'Condition2', 'BldgType', 'HouseStyle',
-           'RoofStyle', 'RoofMatl', 'Exterior1st', 'Exterior2nd', 'MasVnrType', 'Foundation', 'Heating', 'CentralAir', 'GarageType', 'MoSold',
-           'SaleType', 'SaleCondition')
-             
 I mapped the month names from numbers to string names to better reflect the nominal nature. I also encoded the categories with rare values and combined them into single category called Rare. This helps to alleviate the rareness problem. And, I encoded the categories with ordering as per increasing mean prices.
 
 I engieered four age-related features, total bath count, and total area of the house features.
