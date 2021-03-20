@@ -99,5 +99,8 @@ At the point, I fit the best model on the entire dataset.
 
 - Deploy solution
 
-Finally, I save the predictions in a csv file, and save the model, predictions and feature importances to the disk.
+Finally, I save the predictions in a csv file, and save the model, predictions and feature importances to the disk. Below is the figure showing top 25 important features.
+
+![test](https://user-images.githubusercontent.com/26305084/111883088-7b7c3b80-898f-11eb-821a-3772c9aa5a85.jpeg)
+
 - Measure efficacy
