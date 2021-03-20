@@ -108,5 +108,3 @@ Finally, I save the predictions in a csv file, and save the model, predictions a
 I'm going to skip this step, since I don't have the actual outcomes of the unseen test data.
 
 The details as well as full implementation of the Develop and Deploy stages can be found in a separate [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb).    
-
-### Concluding Remarks
