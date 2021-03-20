@@ -84,7 +84,7 @@ We can see overfitting due to diffences in train and test model predictive perfo
 
 We then performed the GridSearch hyper-parameter tuning on the LightGBM to determine the best set of parameters.
 
-Best CV Score: 0.09
+Best CV Score (best RMSE on Log scale): 0.09
 
 Best Parameters: {'reg3__colsample_bytree': 0.3, 
                           'reg3__max_depth': 6, 
@@ -109,4 +109,4 @@ I'm going to skip this step, since I don't have the actual outcomes of the unsee
 
 The details as well as full implementation of the Develop and Deploy stages can be found in a separate [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb).    
 
-# Concluding Remarks
+### Concluding Remarks
