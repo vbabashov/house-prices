@@ -19,6 +19,7 @@ The raw dataset comes in train.csv featuring 81 columns and 1460 raws. The test.
 Four of the columns 'Alley', 'PoolQC', 'Fence', 'MiscFeature' have more than 80% of the values missing, thus, I'll drop them from the dataset in the modelling phase.  The rest of the columns were imputed using median and mode imputers.
 
 - Explore data: 
+
 To explore the data, we can create visualizations. First, let's take a look at the target. From the Figure below SalePrice variable is skewed to the right and there are several outliers. Log-transformation of the target can help improve the model performance.
 
 ![saleprice](https://user-images.githubusercontent.com/26305084/110682726-43177900-81a9-11eb-9de3-0047b689790d.jpeg)
@@ -38,9 +39,11 @@ Finally, the heatmap show correlation between the features and between features 
 ![heatmap](https://user-images.githubusercontent.com/26305084/111834061-71900500-88c9-11eb-88ed-b6dd1bdcd737.jpeg)
 
 - Set baseline outcomes: 
+
 As a [baseline](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. MAE  for the Baseline Model: 24139.18
 
 - Hypothesize solutions: 
+
 It is my contention that we can obtain better predictive performance compared to baseline using the tree-based models along with feature engineering as following:
 
 - Random Forest
@@ -91,5 +94,10 @@ Best Parameters: {'reg3__colsample_bytree': 0.3,
 
 ### 4. Deploy:
 - Automate pipeline
+
+At the point, I fit the best model on the entire dataset.
+
 - Deploy solution
+
+Finally, I save the predictions in a csv file, and save the model, predictions and feature importances to the disk.
 - Measure efficacy
