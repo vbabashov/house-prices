@@ -60,7 +60,7 @@ Feature engineering is critical to succesful ML applications. Here, I use featur
  
 I mapped the month names from numbers to string names to better reflect the nominal nature. I also encoded the categories with rare values and combined them into single category called Rare. This helps to alleviate the rareness problem. And, I encoded the categories with ordering as per increasing mean prices.
 
-I engieered four age-related features, total bath count, and total area of the house features.
+I engieered four age-related features, total bath count, and total area of the house features. Finally, I log-transformed the SalePrice to minimize the impact of the outliers.
              
 - Create Models
 
@@ -113,4 +113,4 @@ The details as well as full implementation of the Develop and Deploy stages can 
 
 ### Concluding Remarks
 
-The model performance can be further improved by more feature engineering such as reducing the number of categories into fewer categories and/or dropping some unimportant features from the model. This is particularly important, because unimportant and skewed features introduce more noise to the model.
+The model performance can be further improved by more feature engineering such as reducing the number of categories into fewer categories and/or dropping some unimportant features from the model. This is particularly important, because unimportant and skewed features introduce more noise to the model. Adding polynomial features and interactions didn't imporove the performance. More experiments with the SelectKBest approach is necessary. Alternative feature selection methods can be explored.
