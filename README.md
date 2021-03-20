@@ -57,7 +57,22 @@ I mapped the month names from numbers to string names to better reflect the nomi
 I engieered four age-related features, total bath count, and total area of the house features.
              
 - Create Models
+
+I created models using the Pipelines to chain Polinomial Features, Feature Selection wih the models. In addition, I created the parameter grid to be used in GridSearch hyperparameter tuning.
+
 - Test models
+
+I used nested cross-validation approach (5x2Cv) to compare and find the best performing algorithm and set of parameters. Analysis showed that LightGBM performs relatively well.
+
+Best CV Score: 0.09
+Best Parameters: {'reg3__colsample_bytree': 0.3, 'reg3__max_depth': 6, 'reg3__n_estimators': 100, 'reg3__num_leaves': 8}
+
+Train MAE: 10776.56
+ Test MAE: 16447.13
+
+Train R2: 0.95
+ Test R2: 0.86
+
 - Select best models
 
 ### 4. Deploy:
