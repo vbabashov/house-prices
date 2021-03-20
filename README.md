@@ -40,9 +40,7 @@ Finally, the heatmap show correlation between the features and between features 
 
 - Set baseline outcomes: 
 
-As a baseline, shown in a [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. 
-
-- MAE  for the Baseline Model: 24139.18
+As a baseline, shown in a [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. MAE  for the Baseline Model: 24139.18
 
 - Hypothesize solutions: 
 
@@ -112,3 +110,7 @@ As we can see, LotArea, TotalArea, GrLivArea, OverallCond and OverallQual are th
 I'm going to skip this step, since I don't have the actual outcomes of the unseen test data.
 
 The details as well as full implementation of the Develop and Deploy stages can be found in a separate [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb).    
+
+### Concluding Remarks
+
+The model performance can be further improved by more feature engineering such as reducing the number of categories into fewer categories and/or dropping some unimportant features from the model. This is particularly important, because unimportant and skewed features introduce more noise to the model.
