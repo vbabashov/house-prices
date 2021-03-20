@@ -6,24 +6,15 @@ In this project, I'll develop prediction models using the house prices dataset f
 
 ### 1. Define:
 
-- Define the Problem:
-
-The objective of this ML exercise is to determine the best model to predict house prices using in the Ames, Iowa. 
-
+- Define the Problem: The objective of this ML exercise is to determine the best model to predict house prices using in the Ames, Iowa. 
 
 ### 2. Discover: 
 
-- Obtain data:
-
-The raw dataset comes in train.csv featuring 81 columns and 1460 raws. The test.csv includes the features where the Sale Price is to be predicted.
+- Obtain data: The raw dataset comes in train.csv featuring 81 columns and 1460 raws. The test.csv includes the features where the Sale Price is to be predicted.
  
-- Clean data:
+- Clean data: Four of the columns 'Alley', 'PoolQC', 'Fence', 'MiscFeature' have more than 80% of the values missing, thus, I'll drop them from the dataset in the modelling phase. 
 
-Four of the columns 'Alley', 'PoolQC', 'Fence', 'MiscFeature' have more than 80% of the values missing, thus, I'll drop them from the dataset in the modelling phase. 
-
-- Explore data:
-
-To explore the data, we can create visualizations. First, let's take a look at the target. From the Figure below SalePrice variable is skewed to the right and there are several outliers. Log-transformation of the target can help improve the model performance.
+- Explore data: To explore the data, we can create visualizations. First, let's take a look at the target. From the Figure below SalePrice variable is skewed to the right and there are several outliers. Log-transformation of the target can help improve the model performance.
 
 ![saleprice](https://user-images.githubusercontent.com/26305084/110682726-43177900-81a9-11eb-9de3-0047b689790d.jpeg)
 
@@ -41,15 +32,9 @@ Finally, the heatmap show correlation between the features and between features 
 
 ![heatmap](https://user-images.githubusercontent.com/26305084/111834061-71900500-88c9-11eb-88ed-b6dd1bdcd737.jpeg)
 
-- Set baseline outcomes:
+- Set baseline outcomes: As a [baseline](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. MAE  for the Baseline Model: 24139.18
 
-As a [baseline](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset.
-
-- MAE  for the Baseline Model: 24139.18
-
-- Hypothesize solutions:
-
-It is my contention that we can obtain better predictive performance compared to baseline using the tree-based models along with feature engineering as following:
+- Hypothesize solutions: It is my contention that we can obtain better predictive performance compared to baseline using the tree-based models along with feature engineering as following:
 
 - Random Forest
 - Xgboost
@@ -59,9 +44,7 @@ These (bagging and boosting) models have shown to be successful in different app
 
 ### 3. Develop:
 
-- Engineer features:
-
-Feature engineering is critical to succesful ML applications. Here, I use feature_engine Python library and sklearn's prepocessing and feature selection.
+- Engineer features: Feature engineering is critical to succesful ML applications. Here, I use feature_engine Python library and sklearn's prepocessing and feature selection.
 
 - Create Models
 - Test models
