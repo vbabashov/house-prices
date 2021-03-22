@@ -64,7 +64,7 @@ I engieered four age-related features, total bath count, and total area of the h
              
 - Create Models
 
-I created models using the Pipelines to chain Polinomial Features, Feature Selection wih the models. In addition, I created the parameter grid to be used in GridSearch hyperparameter tuning.
+I created models using the Pipelines to chain Polynomial Features, Feature Selection wih the models. In addition, I created the parameter grid to be used in GridSearch hyperparameter tuning.
 
 - Test models
 
