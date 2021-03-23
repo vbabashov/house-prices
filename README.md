@@ -4,7 +4,7 @@ House Price Prediction (Python) - work in progress
 
 ### Problem Statement:
 
-In this project, I'll develop prediction models using the house prices dataset from Aimes, IA. The goal is to demonstrate the 4 steps of the Data Science project lifecycle: Define, Discover, Develop and Deploy.  I will build several supervised machine learning models and evaluate the predictive performance. First, I'll establish simple baseline model using the OLS regression, and then I'll develop a few predictive models, namely, random forest, xgboost and lightgbm regression models and compare the performance of these models against the baseline with the aim to get better predictive performance. The implementation of similar models will potentially allow housing agencies, real-estate companies, banks, municipial governments and home buyers to make informed decisions with respect to market pricing.
+In this project, I'll develop prediction models using the house prices dataset from Aimes, IA. The goal is to demonstrate the 4 steps of the Data Science project lifecycle: Define, Discover, Develop and Deploy. First, I'll establish simple baseline model using the OLS regression, and then I'll develop a few predictive models, namely, random forest, xgboost and lightgbm regression models and compare the performance of these models against the baseline with the aim to get better predictive performance. The implementation of similar price prediction models will potentially allow housing agencies, real-estate companies, banks, municipial governments and home buyers to make informed decisions with respect to market pricing.
 
 
 ### 1. Define:
@@ -28,24 +28,20 @@ To explore the data, we can create visualizations. First, let's take a look at t
 
 ![saleprice](https://user-images.githubusercontent.com/26305084/110682726-43177900-81a9-11eb-9de3-0047b689790d.jpeg)
 
-<<<<<<< HEAD
 
 Next, we can take a look at features. There are ordinal, nominal and numeric (continuous or integer) variables. To explore the relationship between SalePrice and numeric feautures, I'll use scatter plots, and between SalePrice and categoric features, I'll use scatter plots.  
 
 The box-plots below reveal the spread of the SalePrices across the category levels. We see an increasing trend as the Overall Qual and Overall Cond of the house increase. Some of the categorical levels seem important while others don't seem play any role.
-=======
+
 Next, we can take a look at features. There are ordinal, nominal and numeric (continious or integer) variables. To explore the relationship between SalePrice and numeric feautures, I'll use scatter plots, and between SalePrice and categoric features, I'll use scatter plots.  
 
 The box-plots below reveal the spread of the SalePrices across the category levels. Mean sale price and distribuition of prices are similar for most of the variables. We see an inceasing trend as the OverallQual and OverallCond of the house increase. For some variables, while some categories are rare, most of the categorical levels don't seem to explain the difference in price.
->>>>>>> 2a5d0561a7354c8bda99880d78d7a20525213e54
 
 ![boxplots](https://user-images.githubusercontent.com/26305084/111832968-d9455080-88c7-11eb-9016-cd800720cce4.jpeg)
 
-<<<<<<< HEAD
 Scatter plots show that SalesPrie increase with LotFrontage, LotArea, BsmtFinSF1, GrLivArea, 1sfFlrSF and TotalBsmtSF variables. According to the data description file, GrLivArea with higher than 4000 sq feet constitute unusual observations, so sales (a total of five) with this condition can be dropped from the dataset. 
-=======
+
 Scatter plots show that SalePrie increases with LotFrontage, LotArea, BsmtFinSF1, BsmtFinSF2, TotalBsmtSF, 1sfFlrSF, 2ndFlrSF, GrLivArea and GarageArea variables.
->>>>>>> 2a5d0561a7354c8bda99880d78d7a20525213e54
 
 ![scatter](https://user-images.githubusercontent.com/26305084/111832940-cdf22500-88c7-11eb-8522-546c7244c420.jpeg)
 
