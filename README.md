@@ -38,9 +38,7 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
 
 - Set baseline outcomes: As a baseline, shown in a [notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. MAE  for the Baseline Model: 24139.18
 
-- Hypothesize solutions: It is my contention that we can obtain better predictive performance compared to baseline using the tree-based models along with feature engineering as following: Random Forest, Xgboost and LightGBM.
-
-These (bagging and boosting) models have shown to be successful in different applications. Therefore, I choose them as possible candidate models to explore. The details of Discover stage, can be found in this [notebook](https://github.com/vbabashov/house-prices/blob/main/EDA.ipynb).
+- Hypothesize solutions: It is my contention that we can obtain better predictive performance compared to baseline using the tree-based models along with feature engineering as following: Random Forest, Xgboost and LightGBM. These (bagging and boosting) models have shown to be successful in different applications. Therefore, I choose them as possible candidate models to explore. The details of Discover stage, can be found in this [notebook](https://github.com/vbabashov/house-prices/blob/main/EDA.ipynb).
 
 ### 3. Develop:
 
@@ -82,7 +80,7 @@ As we can see, LotArea, TotalArea, GrLivArea, OverallCond and OverallQual are th
 
 - Measure efficacy: I'm going to skip this step, since I don't have the actual outcomes of the unseen test data.
 
-The details as well as full implementation of the Develop and Deploy stages can be found in a separate [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb).    
+The details as well as full implementation of the Develop and Deploy stages can be found in a separate [notebook](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb).    
 
 ### Concluding Remarks
 
