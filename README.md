@@ -38,31 +38,21 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
 
 - Set baseline outcomes: As a baseline, shown in a [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. MAE  for the Baseline Model: 24139.18
 
-- Hypothesize solutions: It is my contention that we can obtain better predictive performance compared to baseline using the tree-based models along with feature engineering as following:
+- Hypothesize solutions: It is my contention that we can obtain better predictive performance compared to baseline using the tree-based models along with feature engineering as following: Random Forest, Xgboost and LightGBM.
 
--- Random Forest
--- Xgboost
--- LightGBM
-
-These (bagging and boosting) models have shown to be successful in different applications. Therefore, I choose them as possible candidate models to explore. The details of Discover stage, can be found in this [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/EDA.ipynb).
+These (bagging and boosting) models have shown to be successful in different applications. Therefore, I choose them as possible candidate models to explore. The details of Discover stage, can be found in this [notebook](https://github.com/vbabashov/house-prices/blob/main/EDA.ipynb).
 
 ### 3. Develop:
 
-- Engineer features: 
-
-Feature engineering is critical to succesful ML applications. Here, I use feature_engine Python library and sklearn's prepocessing and feature selection. There are ordinal variables in the dataset. I used ordinal encoding to encode the variables. Nominal variables have a lot of categories. Some of these categories don't have any observation. In the preliminary analysis, I noted that one-hot encoding results in poor model peformance due to many columns with sparsity and some categories being having rare values. Instead, I looked at mean Sale Price for each category and encoded them in an increasing order. This showed better model predictive performance.
+- Engineer features: Feature engineering is critical to succesful ML applications. Here, I use feature_engine Python library and sklearn's prepocessing and feature selection. There are ordinal variables in the dataset. I used ordinal encoding to encode the variables. Nominal variables have a lot of categories. Some of these categories don't have any observation. In the preliminary analysis, I noted that one-hot encoding results in poor model peformance due to many columns with sparsity and some categories being having rare values. Instead, I looked at mean Sale Price for each category and encoded them in an increasing order. This showed better model predictive performance.
  
 I mapped the month names from numbers to string names to better reflect the nominal nature. I also encoded the categories with rare values and combined them into single category called Rare. This helps to alleviate the rareness problem. And, I encoded the categories with ordering as per increasing mean prices.
 
 I engieered four age-related features, total bath count, and total area of the house features. Finally, I log-transformed the SalePrice to minimize the impact of the outliers.
              
-- Create Models
+- Create Models:I created models using the Pipelines to chain Polynomial Features, Feature Selection wih the models. In addition, I created the parameter grid to be used in GridSearch hyperparameter tuning.
 
-I created models using the Pipelines to chain Polynomial Features, Feature Selection wih the models. In addition, I created the parameter grid to be used in GridSearch hyperparameter tuning.
-
-- Test models
-
-I used nested cross-validation approach (5x2Cv) to compare and find the best performing algorithm. Analysis showed that LightGBM performs relatively well.
+- Test models: I used nested cross-validation approach (5x2Cv) to compare and find the best performing algorithm. Analysis showed that LightGBM performs relatively well.
 
 Train MAE: 10776.56
 
@@ -74,9 +64,7 @@ Test R2: 0.86
 
 We can see overfitting due to diffences in train and test model predictive performance.
 
-- Select best models
-
-We then performed the GridSearch hyper-parameter tuning on the LightGBM to determine the best set of parameters.
+- Select best models: We then performed the GridSearch hyper-parameter tuning on the LightGBM to determine the best set of parameters.
 
 Best CV Score (best RMSE on Log scale): 0.09
 
@@ -87,21 +75,15 @@ Best Parameters: {'reg3__colsample_bytree': 0.3,
                          
 
 ### 4. Deploy:
-- Automate pipeline
+- Automate pipeline: At this point, I fit the best model on the entire dataset and generate the predictions on a new dataset.
 
-At this point, I fit the best model on the entire dataset and generate the predictions on a new dataset.
-
-- Deploy solution
-
-Finally, I save the predictions in a csv file, and save the model, predictions and feature importances to the disk. Below is the figure showing top 25 important features.
+- Deploy solution: Finally, I save the predictions in a csv file, and save the model, predictions and feature importances to the disk. Below is the figure showing top 25 important features.
 
 ![test](https://user-images.githubusercontent.com/26305084/111883088-7b7c3b80-898f-11eb-821a-3772c9aa5a85.jpeg)
 
 As we can see, LotArea, TotalArea, GrLivArea, OverallCond and OverallQual are the top 5 features with the most predictive power.
 
-- Measure efficacy
-
-I'm going to skip this step, since I don't have the actual outcomes of the unseen test data.
+- Measure efficacy: I'm going to skip this step, since I don't have the actual outcomes of the unseen test data.
 
 The details as well as full implementation of the Develop and Deploy stages can be found in a separate [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb).    
 
