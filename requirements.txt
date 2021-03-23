@@ -1,0 +1,10 @@
+# List of the packages to be installed
+numpy     : 1.19.2
+mlxtend   : 0.18.0
+matplotlib: 3.3.4
+sklearn   : 0.24.1
+xgboost
+lightgbm
+feature_engine
+seaborn
+math
