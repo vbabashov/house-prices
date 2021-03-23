@@ -1,4 +1,5 @@
 
+
 # house-prices
 House Price Prediction (Python) - work in progress
 
@@ -36,13 +37,13 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
 
 - The box-plots below reveal the spread of the SalePrices across the category levels. Mean sale price and distribuition of prices are similar for most of the variables. We see an inceasing trend as the OverallQual and OverallCond of the house increase. For some variables, while some categories are rare, most of the categorical levels don't seem to explain the difference in price.
 
-![boxplots](https://user-images.githubusercontent.com/26305084/111832968-d9455080-88c7-11eb-9016-cd800720cce4.jpeg)
+![selectboxplots](https://user-images.githubusercontent.com/26305084/112189231-31d36100-8bda-11eb-846d-a79159a4a24c.jpeg)
 
 Scatter plots show that SalesPrie increase with LotFrontage, LotArea, BsmtFinSF1, GrLivArea, 1sfFlrSF and TotalBsmtSF variables. According to the data description file, GrLivArea with higher than 4000 sq feet constitute unusual observations, so sales (a total of five) with this condition can be dropped from the dataset. 
 
 Scatter plots show that SalePrie increases with LotFrontage, LotArea, BsmtFinSF1, BsmtFinSF2, TotalBsmtSF, 1sfFlrSF, 2ndFlrSF, GrLivArea and GarageArea variables.
 
-![scatter](https://user-images.githubusercontent.com/26305084/111832940-cdf22500-88c7-11eb-8522-546c7244c420.jpeg)
+![selectscatterplots](https://user-images.githubusercontent.com/26305084/112189268-3ac43280-8bda-11eb-9081-e083d1216b17.jpeg)
 
 Finally, the heatmap show correlation between the features and between features and SalePrice.According to the heatmap, house SalePrice is correlated with GrLivArea, GarageCars, GarageArea, TotalBsmtSF, 1stFlrSF (Pearson Correlation Cofficient >=0.6). There seems to be a weaker correlation between SalePrice and rest of the features (Pearson Correlation Cofficient <= 0.5).
 
