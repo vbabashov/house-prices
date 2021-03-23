@@ -85,3 +85,6 @@ The details as well as full implementation of the Develop and Deploy stages can 
 ### Concluding Remarks
 
 The model performance can be further improved by more feature engineering such as reducing the number of categories into fewer categories and/or dropping some unimportant features from the model. This is particularly important, because unimportant and skewed features introduce more noise to the model. Adding polynomial features and interactions didn't imporove the performance. More experiments with the SelectKBest approach is necessary. Alternative feature selection methods can be explored.
+
+### Future Work
+
