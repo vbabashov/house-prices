@@ -2,21 +2,21 @@
 # house-prices
 House Price Prediction (Python) - work in progress
 
-In this project, I'll develop prediction models using the house prices dataset from Kaggle. The goal is to demonstrate the 4 steps of the Data Science project lifecycle: Define, Discover, Develop and Deploy.  I will build several supervised machine learning models and evaluate the performance.
+### Problem Statement:
+
+In this project, I'll develop prediction models using the house prices dataset from Aimes, IA. The goal is to demonstrate the 4 steps of the Data Science project lifecycle: Define, Discover, Develop and Deploy.  I will build several supervised machine learning models and evaluate the predictive performance. First, I'll establish simple baseline model using the OLS regression, and then I'll develop a few predictive models, namely, random forest, xgboost and lightgbm regression models and compare the performance of these models against the baseline with the aim to get better predictive performance. The implementation of similar models will potentially allow housing agencies, real-estate companies, banks, municipial governments and home buyers to make informed decisions with respect to market pricing.
+
 
 ### 1. Define:
 
-- Define the Problem: The objective of this ML exercise is to determine the best model to predict house prices using in the Ames, Iowa. 
+- Define the Problem: The objective of this ML exercise is to determine the best model to predict house prices. 
 
 ### 2. Discover: 
 
 - Obtain data: 
 
-<<<<<<< HEAD
-The raw dataset comes in train.csv, test.csv and sample_submission.csv including the target values for the test test. Since, the purpose of this exercise is not a competition, I merged the csv files into one file for easier pre-processing steps.
-=======
-The raw dataset comes in train.csv featuring 81 columns and 1460 raws. The test.csv includes the features where the Sale Price is to be predicted.
->>>>>>> 2a5d0561a7354c8bda99880d78d7a20525213e54
+The raw dataset comes in train.csv, test.csv and sample_submission.csv including the target values for the test test. Since, the purpose of this exercise is not a competition, I merged the csv files into one file for easier pre-processing steps. The raw dataset comes in train.csv featuring 81 columns and 1460 raws. The test.csv includes the features where the Sale Price is to be predicted.
+
  
 - Clean data: 
 
