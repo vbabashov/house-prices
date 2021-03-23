@@ -36,7 +36,7 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
 
 ![heatmap](https://user-images.githubusercontent.com/26305084/111834061-71900500-88c9-11eb-88ed-b6dd1bdcd737.jpeg)
 
-- Set baseline outcomes: As a baseline, shown in a [Jupyter notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. MAE  for the Baseline Model: 24139.18
+- Set baseline outcomes: As a baseline, shown in a [notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of with the test dataset. MAE  for the Baseline Model: 24139.18
 
 - Hypothesize solutions: It is my contention that we can obtain better predictive performance compared to baseline using the tree-based models along with feature engineering as following: Random Forest, Xgboost and LightGBM.
 
@@ -44,13 +44,9 @@ These (bagging and boosting) models have shown to be successful in different app
 
 ### 3. Develop:
 
-- Engineer features: Feature engineering is critical to succesful ML applications. Here, I use feature_engine Python library and sklearn's prepocessing and feature selection. There are ordinal variables in the dataset. I used ordinal encoding to encode the variables. Nominal variables have a lot of categories. Some of these categories don't have any observation. In the preliminary analysis, I noted that one-hot encoding results in poor model peformance due to many columns with sparsity and some categories being having rare values. Instead, I looked at mean Sale Price for each category and encoded them in an increasing order. This showed better model predictive performance.
- 
-I mapped the month names from numbers to string names to better reflect the nominal nature. I also encoded the categories with rare values and combined them into single category called Rare. This helps to alleviate the rareness problem. And, I encoded the categories with ordering as per increasing mean prices.
-
-I engieered four age-related features, total bath count, and total area of the house features. Finally, I log-transformed the SalePrice to minimize the impact of the outliers.
+- Engineer features: Feature engineering is critical to succesful ML applications. Here, I use feature_engine Python library and sklearn's prepocessing and feature selection. There are ordinal variables in the dataset. I used ordinal encoding to encode the variables. Nominal variables have a lot of categories. Some of these categories don't have any observation. In the preliminary analysis, I noted that one-hot encoding results in poor model peformance due to many columns with sparsity and some categories being having rare values. Instead, I looked at mean Sale Price for each category and encoded them in an increasing order. This showed better model predictive performance. I mapped the month names from numbers to string names to better reflect the nominal nature. I also encoded the categories with rare values and combined them into single category called Rare. This helps to alleviate the rareness problem. And, I encoded the categories with ordering as per increasing mean prices.Also, I engineered four age-related features, total bath count, and total area of the house features. Finally, I log-transformed the SalePrice to minimize the impact of the outliers.
              
-- Create Models:I created models using the Pipelines to chain Polynomial Features, Feature Selection wih the models. In addition, I created the parameter grid to be used in GridSearch hyperparameter tuning.
+- Create Models: I created models using the Pipelines to chain Polynomial Features, Feature Selection wih the models. In addition, I created the parameter grid to be used in GridSearch hyperparameter tuning.
 
 - Test models: I used nested cross-validation approach (5x2Cv) to compare and find the best performing algorithm. Analysis showed that LightGBM performs relatively well.
 
@@ -75,6 +71,7 @@ Best Parameters: {'reg3__colsample_bytree': 0.3,
                          
 
 ### 4. Deploy:
+
 - Automate pipeline: At this point, I fit the best model on the entire dataset and generate the predictions on a new dataset.
 
 - Deploy solution: Finally, I save the predictions in a csv file, and save the model, predictions and feature importances to the disk. Below is the figure showing top 25 important features.
