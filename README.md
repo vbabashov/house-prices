@@ -9,7 +9,7 @@ In this project, I'll develop prediction models using the house prices dataset f
 
 ### 1. Define:
 
-- Define the Problem: The objective of this ML exercise is to determine the best model to predict house prices in Aimes, IA.
+- Define the Problem: The objective of this ML exercise is to determine the best model to predict the house prices using the Aimes, IA dataset.
 
 ### 2. Discover: 
 
