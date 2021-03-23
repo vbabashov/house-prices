@@ -1,3 +1,4 @@
+
 # house-prices
 House Price Prediction (Python) - work in progress
 
@@ -25,7 +26,7 @@ Four of the columns 'Alley', 'PoolQC', 'Fence', 'MiscFeature' have more than 80%
 
 To explore the data, we can create visualizations. First, let's take a look at the target. From the Figure below SalePrice variable is skewed to the right and there are several outliers. Log-transformation of the target can help improve the model performance.
 
-![saleprice](https://user-images.githubusercontent.com/26305084/112194480-49f9af00-8bdf-11eb-80e8-5394eba00f42.jpeg)
+![saleprice](https://user-images.githubusercontent.com/26305084/112194684-8200f200-8bdf-11eb-9db5-dec7dc242f72.jpeg)
 
 Next, we can take a look at features. There are ordinal, nominal and numeric (continuous or integer) variables. To explore the relationship between SalePrice and numeric feautures, I'll use scatter plots, and between SalePrice and categoric features, I'll use scatter plots.  
 
