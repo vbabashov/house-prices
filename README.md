@@ -19,7 +19,7 @@ In this project, I'll develop prediction models using the house prices dataset f
 
 - Explore data: To explore the data, we can create data visualizations. First, let's take a look at the target. From the Figure below SalePrice variable is skewed to the right and there are several outliers. Log-transformation of the target can help improve the model performance. For now, we'll keep the outliers, but it is important to note that outliers in features or target can make the ML model unstable.
 
-      ![saleprice](https://user-images.githubusercontent.com/26305084/112194684-8200f200-8bdf-11eb-9db5-dec7dc242f72.jpeg)
+     ![saleprice](https://user-images.githubusercontent.com/26305084/112194684-8200f200-8bdf-11eb-9db5-dec7dc242f72.jpeg)
 
 Next, we can take a look at features. There are ordinal, nominal and numeric (continuous or integer) variables. To explore the relationship between SalePrice and numeric feautures, I'll use scatter plots, and to investigate the relationship between SalePrice and categoric features, I'll use scatter plots.  
 
