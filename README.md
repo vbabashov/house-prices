@@ -84,7 +84,7 @@ The details as well as full implementation of the Develop and Deploy stages can 
 
 ### Concluding Remarks:
 
-The LightGBM performed slightly better than the Xgboost and Random Forest. This confirms our early contention that tree-based boosting algorithms can be usefull in building interpretable model with better predictive performance. LightGBM is high performance boosting algorithm. If tuned well, it can result in good and useful models. Despite some degree of overfitting, the model (as-is) is still useful, however there is a room for further improvement which I highlight in the next section.
+The LightGBM performed slightly better than the Xgboost and Random Forest. This confirms our early contention that tree-based boosting algorithms can be usefull in building interpretable model with better predictive performance. LightGBM is high performance boosting algorithm. If tuned well, it can result in good and useful models. Despite some degree of overfitting, the model (as-is) is still useful as it resulted in **32%** improvement in model predictive performance. However, there is a room for further improvement which I highlight in the next section.
 
 ### Future Enhancement:
 
