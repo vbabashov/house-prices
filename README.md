@@ -25,16 +25,16 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
 
 - The box-plots below reveal the spread of the SalePrices across the category levels. Mean sale price and distribuition of prices are similar for most of the variables. Therefore, I included only a select number of box-plots here. We can see an inceasing trend as the OverallQual and OverallCond of the house increase. While some categories explain the difference in prices for some levels of the Neighbourhood, Condition1, Functional, LotConfig, BsmtExposure and KitchenQual, other levels don't seem to explain the variability in price.
 
-      ![selectboxplots](https://user-images.githubusercontent.com/26305084/112189231-31d36100-8bda-11eb-846d-a79159a4a24c.jpeg)
+     ![selectboxplots](https://user-images.githubusercontent.com/26305084/112189231-31d36100-8bda-11eb-846d-a79159a4a24c.jpeg)
 
 
 - Scatter plots show that SalePrice increases with LotFrontage, LotArea, BsmtFinSF1, TotalBsmtSF, 1sfFlrSF, GrLivArea, GarageArea, GarageCars and Fireplaces variables.
 
-      ![selectscatterplots](https://user-images.githubusercontent.com/26305084/112189268-3ac43280-8bda-11eb-9081-e083d1216b17.jpeg)
+     ![selectscatterplots](https://user-images.githubusercontent.com/26305084/112189268-3ac43280-8bda-11eb-9081-e083d1216b17.jpeg)
 
 - Finally, the heatmap show correlation between the features and between features and SalePrice. According to the heatmap, house SalePrice is correlated with GrLivArea, GarageCars, GarageArea, TotalBsmtSF, 1stFlrSF(Pearson Correlation Cofficient >=0.6). here seems to be a weak correlation between SalePrice and rest of the features (Pearson Correlation Cofficient <= 0.5).
 
-      ![heatmap](https://user-images.githubusercontent.com/26305084/111834061-71900500-88c9-11eb-88ed-b6dd1bdcd737.jpeg)
+     ![heatmap](https://user-images.githubusercontent.com/26305084/111834061-71900500-88c9-11eb-88ed-b6dd1bdcd737.jpeg)
 
 - Set baseline outcomes: As a baseline, as shown in a [notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built an Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of ##### 24139.18 with the test dataset.
 
@@ -74,7 +74,7 @@ We can see overfitting due to diffence in train and test model predictive perfor
 
 - Deploy solution: Finally, I store the predictions in a csv file, and then save the model, predictions and feature importances to the disk. Below is the figure showing top 25 important features.
 
-      ![test](https://user-images.githubusercontent.com/26305084/111883088-7b7c3b80-898f-11eb-821a-3772c9aa5a85.jpeg)
+     ![test](https://user-images.githubusercontent.com/26305084/111883088-7b7c3b80-898f-11eb-821a-3772c9aa5a85.jpeg)
 
 As we can see, LotArea, TotalArea, GrLivArea, OverallCond and OverallQual are the top 5 features with the most predictive power.
 
@@ -82,9 +82,14 @@ As we can see, LotArea, TotalArea, GrLivArea, OverallCond and OverallQual are th
 
 The details as well as full implementation of the Develop and Deploy stages can be found in a separate [notebook](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb).    
 
-### Concluding Remarks
+### Concluding Remarks:
 
-The model performance can be further improved by more feature engineering such as reducing the number of categories into fewer categories and/or dropping some unimportant features from the model. This is particularly important, because unimportant and skewed features introduce more noise to the model. Adding polynomial features and interactions didn't imporove the performance. More experiments with the SelectKBest approach is necessary. Alternative feature selection methods can be explored.
+The LightGBM performed slightly better than the Xgboost and Random Forest. This confirms our early contention that tree-based boosting algorithms can be usefull in building interpretable model with better predictive performance. LightGBM is high performance boosting algorithm. If tuned well, it can result in good and useful models. Despite some degree of overfitting, the model (as-is) is still useful, however there is a room for further improvement which I highlight in the next section.
 
-### Future Work
+### Future Enhancement:
 
+As a future enhacement, we can try the following steps which will potentially reduce the degree of overfitting and improve the model performance.
+
+- Feature engineering: There are some cateogrical variables which don't have predictive power. Combining them into fewer categories and/or dropping the unimportant features from the model can help lift the model. Unimportant and skewed features introduce more noise to the model. 
+
+- LightGBM Tuner:  We can also try [Optuna] (https://medium.com/optuna/lightgbm-tuner-new-optuna-integration-for-hyperparameter-optimization-8b7095e99258) to iteratively optimize the model accuracy across large set of hyperparameter tuning.
