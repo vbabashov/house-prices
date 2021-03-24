@@ -36,7 +36,7 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
 
      ![heatmap](https://user-images.githubusercontent.com/26305084/111834061-71900500-88c9-11eb-88ed-b6dd1bdcd737.jpeg)
 
-- Set baseline outcomes: As a baseline, as shown in a [notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built an Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of ##### 24139.18 with the test dataset.
+- Set baseline outcomes: As a baseline, as shown in a [notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built an Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of **24139.18** with the test dataset.
 
 - Hypothesize solutions: It is my contention that we can obtain better predictive performance compared to baseline model using the tree-based models with some feature engineering. Random Forest, Xgboost and LightGBM. These (bagging and boosting) models have shown to be successful in different applications. Therefore, I choose them as possible candidate models to explore. The details of Discover stage (e.g., EDA) can be found in this [notebook](https://github.com/vbabashov/house-prices/blob/main/EDA.ipynb).
 
