@@ -19,22 +19,22 @@ In this project, I'll develop prediction models using the house prices dataset f
 
 - Explore data: To explore the data, we can create data visualizations. First, let's take a look at the target. From the Figure below SalePrice variable is skewed to the right and there are several outliers. Log-transformation of the target can help improve the model performance. For now, we'll keep the outliers, but it is important to note that outliers in features or target can make the ML model unstable.
 
-![saleprice](https://user-images.githubusercontent.com/26305084/112194684-8200f200-8bdf-11eb-9db5-dec7dc242f72.jpeg)
+      ![saleprice](https://user-images.githubusercontent.com/26305084/112194684-8200f200-8bdf-11eb-9db5-dec7dc242f72.jpeg)
 
 Next, we can take a look at features. There are ordinal, nominal and numeric (continuous or integer) variables. To explore the relationship between SalePrice and numeric feautures, I'll use scatter plots, and to investigate the relationship between SalePrice and categoric features, I'll use scatter plots.  
 
 - The box-plots below reveal the spread of the SalePrices across the category levels. Mean sale price and distribuition of prices are similar for most of the variables. Therefore, I included only a select number of box-plots here. We can see an inceasing trend as the OverallQual and OverallCond of the house increase. While some categories explain the difference in prices for some levels of the Neighbourhood, Condition1, Functional, LotConfig, BsmtExposure and KitchenQual, other levels don't seem to explain the variability in price.
 
-![selectboxplots](https://user-images.githubusercontent.com/26305084/112189231-31d36100-8bda-11eb-846d-a79159a4a24c.jpeg)
+      ![selectboxplots](https://user-images.githubusercontent.com/26305084/112189231-31d36100-8bda-11eb-846d-a79159a4a24c.jpeg)
 
 
 - Scatter plots show that SalePrice increases with LotFrontage, LotArea, BsmtFinSF1, TotalBsmtSF, 1sfFlrSF, GrLivArea, GarageArea, GarageCars and Fireplaces variables.
 
-![selectscatterplots](https://user-images.githubusercontent.com/26305084/112189268-3ac43280-8bda-11eb-9081-e083d1216b17.jpeg)
+      ![selectscatterplots](https://user-images.githubusercontent.com/26305084/112189268-3ac43280-8bda-11eb-9081-e083d1216b17.jpeg)
 
 - Finally, the heatmap show correlation between the features and between features and SalePrice. According to the heatmap, house SalePrice is correlated with GrLivArea, GarageCars, GarageArea, TotalBsmtSF, 1stFlrSF(Pearson Correlation Cofficient >=0.6). here seems to be a weak correlation between SalePrice and rest of the features (Pearson Correlation Cofficient <= 0.5).
 
-![heatmap](https://user-images.githubusercontent.com/26305084/111834061-71900500-88c9-11eb-88ed-b6dd1bdcd737.jpeg)
+      ![heatmap](https://user-images.githubusercontent.com/26305084/111834061-71900500-88c9-11eb-88ed-b6dd1bdcd737.jpeg)
 
 - Set baseline outcomes: As a baseline, as shown in a [notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built an Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of ##### 24139.18 with the test dataset.
 
@@ -46,7 +46,7 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
              
 - Create Models: I created models using the Pipelines to chain Polynomial Features, Feature Selection wih the models. In addition, I created the parameter grid to be used in GridSearch hyperparameter tuning.
 
-- Test models: I used nested cross-validation approach (5x2Cv) to perform algorithm selection and model selection (i.e., hyperparameter tuning). Based on the GridSearch hyper-parameter tuning and nested cross-validation analysis, LightGBM performs relatively well compared to other alternative algortihms with different hypothesis search spaces.
+- Test models: I used nested cross-validation approach (5x2Cv) to perform algorithm selection and model selection (i.e., hyperparameter tuning). Based on the GridSearch hyper-parameter tuning and nested cross-validation analysis, LightGBM performs relatively well compared to other alternative algortihms with different hypothesis search space parameters.
 
       Train MAE: 10776.56
 
@@ -74,7 +74,7 @@ We can see overfitting due to diffence in train and test model predictive perfor
 
 - Deploy solution: Finally, I store the predictions in a csv file, and then save the model, predictions and feature importances to the disk. Below is the figure showing top 25 important features.
 
-![test](https://user-images.githubusercontent.com/26305084/111883088-7b7c3b80-898f-11eb-821a-3772c9aa5a85.jpeg)
+      ![test](https://user-images.githubusercontent.com/26305084/111883088-7b7c3b80-898f-11eb-821a-3772c9aa5a85.jpeg)
 
 As we can see, LotArea, TotalArea, GrLivArea, OverallCond and OverallQual are the top 5 features with the most predictive power.
 
