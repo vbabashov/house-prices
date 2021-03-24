@@ -92,4 +92,4 @@ As a future enhacement, we can try the following steps which will potentially re
 
 - Feature engineering: There are some cateogrical variables which don't have predictive power. Combining them into fewer categories and/or dropping the unimportant features from the model can help lift the model. Unimportant and skewed features introduce more noise to the model. 
 
-- LightGBM Tuner:  We can also try [Optuna] (https://medium.com/optuna/lightgbm-tuner-new-optuna-integration-for-hyperparameter-optimization-8b7095e99258) to iteratively optimize the model accuracy across large set of hyperparameter tuning.
+- LightGBM Tuner:  We can also try [Optuna](https://medium.com/optuna/lightgbm-tuner-new-optuna-integration-for-hyperparameter-optimization-8b7095e99258) to iteratively optimize the model accuracy across large set of hyperparameter tuning.
