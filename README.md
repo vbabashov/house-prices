@@ -72,11 +72,9 @@ We can see overfitting due to diffence in train and test model predictive perfor
 
 - Automate pipeline: At this point, I fit the best model on the entire dataset and generate the predictions on a unseen feature dataset (e.g., test.csv).
 
-- Deploy solution: Finally, I store the predictions in a csv file, and then save the model, predictions and feature importances to the disk. Below is the figure showing top 25 important features.
+- Deploy solution: Finally, I store the predictions in a csv file, and then save the model, predictions and feature importances to the disk. Below is the figure showing top 25 important features. As we can see, LotArea, TotalArea, GrLivArea, OverallCond and OverallQual are the top 5 features with the most predictive power.
 
      ![test](https://user-images.githubusercontent.com/26305084/111883088-7b7c3b80-898f-11eb-821a-3772c9aa5a85.jpeg)
-
-As we can see, LotArea, TotalArea, GrLivArea, OverallCond and OverallQual are the top 5 features with the most predictive power.
 
 - Measure efficacy: I'm going to skip this step, since we don't have the actual outcomes of the unseen test data.
 
