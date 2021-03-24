@@ -90,6 +90,6 @@ The LightGBM performed slightly better than the Xgboost and Random Forest. This 
 
 As a future enhacement, we can try the following steps which will potentially reduce the degree of overfitting and improve the model performance.
 
-- Feature engineering: There are some cateogrical variables (e.g., SaleType, PoolArea) which don't seem to have weak predictive power. Combining them into fewer categories and/or dropping the unimportant features from the model can help lift the model. Unimportant and skewed features introduce more noise to the model. 
+- Feature engineering: There are some cateogrical and continious variables (e.g., SaleType, PoolArea) which seem to have a weak predictive power. Combining them into fewer categories and/or dropping the unimportant features from the model can help lift the model. Unimportant and skewed features introduce more noise to the model. 
 
 - LightGBM Tuner:  We can also try [Optuna](https://medium.com/optuna/lightgbm-tuner-new-optuna-integration-for-hyperparameter-optimization-8b7095e99258) to iteratively optimize the model accuracy across large set of hyperparameter tuning.
