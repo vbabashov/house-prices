@@ -25,12 +25,14 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
 
 - The box-plots below reveal the spread of the SalePrices across the category levels. Mean sale price and distribuition of prices are similar for most of the variables. Therefore, I included only a select number of box-plots here. We can see an inceasing trend as the OverallQual and OverallCond of the house increase. While some categories explain the difference in prices for some levels of the Neighbourhood, Condition1, Functional, LotConfig, BsmtExposure and KitchenQual, other levels don't seem to explain the variability in price.
 
-     ![selectboxplots](https://user-images.githubusercontent.com/26305084/112189231-31d36100-8bda-11eb-846d-a79159a4a24c.jpeg)
+   
+ ![selectboxplots](https://user-images.githubusercontent.com/26305084/112189231-31d36100-8bda-11eb-846d-a79159a4a24c.jpeg)
 
 
 - Scatter plots show that SalePrice increases with LotFrontage, LotArea, BsmtFinSF1, TotalBsmtSF, 1sfFlrSF, GrLivArea, GarageArea, GarageCars and Fireplaces variables.
 
-     ![selectscatterplots](https://user-images.githubusercontent.com/26305084/112189268-3ac43280-8bda-11eb-9081-e083d1216b17.jpeg)
+    
+   ![selectscatterplots](https://user-images.githubusercontent.com/26305084/112324569-55a1b000-8c89-11eb-89ca-a1dfb8d123fb.jpeg)
 
 - Finally, the heatmap shows the Pearson correlation coefficients between and among the features and SalePrice. According to the heatmap, house SalePrice is correlated with GrLivArea, GarageCars, GarageArea, TotalBsmtSF, 1stFlrSF(Pearson Correlation Cofficient >=0.6). here seems to be a weak correlation between SalePrice and rest of the features (Pearson Correlation Cofficient <= 0.5).
 
