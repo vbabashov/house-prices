@@ -1,13 +1,14 @@
 # house-prices
-House Price Prediction (Python) - work in progress
+House Price Prediction (Python)
+
+- **Notebook 1: [Exploratory Data Analysis (EDA)](https://github.com/vbabashov/house-prices/blob/main/EDA.ipynb)**
+- **Notebook 2: [Baseline Model](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb)**
+- **Notebook 3: [ML Model Training and Prediction](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb)**
 
 ### Problem Statement:
 
 In this project, I'll develop prediction models using the house prices dataset from Aimes, IA. The goal is to demonstrate the 4 steps of the Data Science project lifecycle: Define, Discover, Develop and Deploy. First, I'll establish simple baseline model using the OLS regression, and then I'll develop a few predictive models, namely, random forest, xgboost and lightgbm regression models and compare the performance of these models against the baseline with the aim to get better predictive performance. The implementation of similar price prediction models will potentially allow the housing agencies (e.g., CMHC in Canada), real-estate companies, central and commercial banks, municipial governments and home buyers to make informed decisions with respect to market pricing.
 
-- **Notebook 1: [Exploratory Data Analysis (EDA)](https://github.com/vbabashov/house-prices/blob/main/EDA.ipynb)**
-- **Notebook 2: [Baseline Model](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb)**
-- **Notebook 3: [ML Model Training and Prediction](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb)**
 
 ### 1. Define:
 
@@ -97,4 +98,4 @@ As a future enhacement, we can try the following steps which will potentially re
 
 - Feature engineering: There are some cateogrical and continious variables (e.g., SaleType, PoolArea) which seem to have a weak predictive power. Combining them into fewer categories and/or dropping the unimportant features from the model can help lift the model. Unimportant and skewed features introduce more noise to the model. 
 
-- LightGBM Tuner:  We can also try [Optuna](https://medium.com/optuna/lightgbm-tuner-new-optuna-integration-for-hyperparameter-optimization-8b7095e99258) to iteratively optimize the model accuracy across large set of hyperparameter tuning.
+- LightGBM Tuner:  We can also try [Optuna](https://medium.com/optuna/lightgbm-tuner-new-optuna-integration-for-hyperparameter-optimization-8b7095e99258) to iteratively optimize the model accuracy across large set of hyperparameter tuning. Particularly,tuning l1 and l2 regularization parameters can help deal with the overfitting problem.
