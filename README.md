@@ -5,6 +5,9 @@ House Price Prediction (Python) - work in progress
 
 In this project, I'll develop prediction models using the house prices dataset from Aimes, IA. The goal is to demonstrate the 4 steps of the Data Science project lifecycle: Define, Discover, Develop and Deploy. First, I'll establish simple baseline model using the OLS regression, and then I'll develop a few predictive models, namely, random forest, xgboost and lightgbm regression models and compare the performance of these models against the baseline with the aim to get better predictive performance. The implementation of similar price prediction models will potentially allow the housing agencies (e.g., CMHC in Canada), real-estate companies, central and commercial banks, municipial governments and home buyers to make informed decisions with respect to market pricing.
 
+- **Notebook 1: [Exploratory Data Analysis (EDA)](https://github.com/vbabashov/house-prices/blob/main/EDA.ipynb)
+- **Notebook 2: [Baseline Model](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb)
+- **Notebook 3: [ML Model Training and Prediction](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb)
 
 ### 1. Define:
 
@@ -34,7 +37,7 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
      ![selectscatterplots](https://user-images.githubusercontent.com/26305084/112324815-8c77c600-8c89-11eb-97db-a3d0931f9e0c.jpeg)
 
 
-- Finally, the heatmap shows the Pearson correlation coefficients between and among the features and SalePrice. According to the heatmap, house SalePrice is correlated with GrLivArea, GarageCars, GarageArea, TotalBsmtSF, 1stFlrSF(Pearson Correlation Cofficient >=0.6). here seems to be a weak correlation between SalePrice and rest of the features (Pearson Correlation Cofficient <= 0.5).
+- Finally, the heatmap shows the Pearson correlation coefficients between and among the features and SalePrice. According to the heatmap, house SalePrice is correlated with GrLivArea, GarageCars, GarageArea, TotalBsmtSF and 1stFlrSF (all with Pearson Correlation Cofficient >=0.6).
 
      ![selectheatmap](https://user-images.githubusercontent.com/26305084/112482761-c52da300-8d4e-11eb-8659-fa7e48f39cc7.jpeg)
 
