@@ -66,7 +66,7 @@ The details of Discover stage (e.g., EDA) can be found in this [notebook](https:
 
 We can see overfitting due to diffence in train and test model predictive performance.
 
-- Select best models: We then performed GridSearch hyperparameter tuning on the LightGBM to determine the best set of parameters.
+- Select best models: We can then perform additional hyperparameter tuning on the LightGBM to determine the best set of parameters. This step is optional, as we have already tuned the models inside the cross-validation function using the GridSearchCV. However, one can use this step to do more substantive and wide-randing hyperparameter search. Also, instead of GridSearchCV, one can use RandomSearchCV or other parameter optimization techniques.
 
       Best CV Score (best RMSE on Log scale): 0.09
 
