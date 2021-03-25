@@ -1,9 +1,9 @@
 # house-prices
 House Price Prediction (Python)
 
-- **Notebook 1: [Exploratory Data Analysis (EDA)](https://github.com/vbabashov/house-prices/blob/main/EDA.ipynb)**
-- **Notebook 2: [Baseline Model](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb)**
-- **Notebook 3: [ML Model Training and Prediction](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb)**
+- **Notebook 1: [Exploratory Data Analysis (EDA)](https://github.com/vbabashov/house-prices/blob/main/notebooks/EDA.ipynb)**
+- **Notebook 2: [Baseline Model](https://github.com/vbabashov/house-prices/blob/main/notebooks/baseline.ipynb)**
+- **Notebook 3: [ML Model Training and Prediction](https://github.com/vbabashov/house-prices/blob/main/notebooks/price_prediction.ipynb)**
 
 ### Problem Statement:
 
@@ -42,11 +42,11 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
 
      ![selectheatmap](https://user-images.githubusercontent.com/26305084/112482761-c52da300-8d4e-11eb-8659-fa7e48f39cc7.jpeg)
 
-- Set baseline outcomes: As a baseline, as shown in a [notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built an Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of **24139.18** with the test dataset.
+- Set baseline outcomes: As a baseline, as shown in a [notebook](https://github.com/vbabashov/house-prices/blob/main/notebooks/baseline.ipynb), I built an Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of **24139.18** with the test dataset.
 
 - Hypothesize solutions: It is my contention that we can obtain better predictive performance compared to baseline model using the tree-based models with some feature engineering. Random Forest, Xgboost and LightGBM. These (bagging and boosting) models have shown to be successful in different applications. Therefore, I choose them as possible candidate models to explore. 
 
-The details of Discover stage (e.g., EDA) can be found in this [notebook](https://github.com/vbabashov/house-prices/blob/main/EDA.ipynb).
+The details of Discover stage (e.g., EDA) can be found in this [notebook](https://github.com/vbabashov/house-prices/blob/main/notebooks/EDA.ipynb).
 
 ### 3. Develop:
 
@@ -86,7 +86,7 @@ We can see overfitting due to diffence in train and test model predictive perfor
 
 - Measure efficacy: I'm going to skip this step, since we don't have the actual outcomes of the unseen test data.
 
-The details as well as full implementation of the Develop and Deploy stages can be found in a separate [notebook](https://github.com/vbabashov/house-prices/blob/main/price_prediction.ipynb).    
+The details as well as full implementation of the Develop and Deploy stages can be found in a separate [notebook](https://github.com/vbabashov/house-prices/blob/main/notebooks/price_prediction.ipynb).    
 
 ### Concluding Remarks:
 
