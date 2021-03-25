@@ -1,4 +1,3 @@
-
 # house-prices
 House Price Prediction (Python) - work in progress
 
@@ -37,7 +36,7 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
 
 - Finally, the heatmap shows the Pearson correlation coefficients between and among the features and SalePrice. According to the heatmap, house SalePrice is correlated with GrLivArea, GarageCars, GarageArea, TotalBsmtSF, 1stFlrSF(Pearson Correlation Cofficient >=0.6). here seems to be a weak correlation between SalePrice and rest of the features (Pearson Correlation Cofficient <= 0.5).
 
-     ![heatmap](https://user-images.githubusercontent.com/26305084/111834061-71900500-88c9-11eb-88ed-b6dd1bdcd737.jpeg)
+     ![selectheatmap](https://user-images.githubusercontent.com/26305084/112482761-c52da300-8d4e-11eb-8659-fa7e48f39cc7.jpeg)
 
 - Set baseline outcomes: As a baseline, as shown in a [notebook](https://github.com/vbabashov/house-prices/blob/main/baseline.ipynb), I built an Ordinary Least Squares (OLS), and obtained the Mean Absolute Error (MAE) of **24139.18** with the test dataset.
 
