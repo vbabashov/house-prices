@@ -56,15 +56,13 @@ The details of Discover stage (e.g., EDA) can be found in this [notebook](https:
 
 - Test models: I used nested cross-validation approach (5x2Cv) to perform algorithm selection and model selection (i.e., hyperparameter tuning). Based on the GridSearch hyper-parameter tuning and nested cross-validation analysis, LightGBM performs relatively well compared to other alternative algortihms with different hypothesis search space parameters.
 
-      Train MAE: 10776.56
+      Train MAE: 11789.50
+      Test MAE: 16645.64
 
-      Test MAE: 16447.13
+      Train R2: 0.94
+      Test R2: 0.85
 
-      Train R2: 0.95
-
-      Test R2: 0.86
-
-We can see overfitting due to diffence in train and test model predictive performance.
+We can see some degree of overfitting due to diffence in training and testing model predictive performance.
 
 - Select best models: We can then perform additional hyperparameter tuning on the LightGBM to determine the best set of parameters. This step is optional, as we have already tuned the models inside the cross-validation function using the GridSearchCV. However, one can use this step to do more substantive and wide-randing hyperparameter search. Also, instead of GridSearchCV, one can use RandomSearchCV or other parameter optimization techniques.
 
