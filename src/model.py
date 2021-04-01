@@ -47,7 +47,7 @@ class Data:
         self.ordinal_encoders = {}
         self.train_df = self._create_train_df(train_file)
         self.test_df  = self._create_test_df(test_file)
-        self.enc = None
+        self.encoder = None
 
 
     def _load_data(self,file):
@@ -84,14 +84,15 @@ class Data:
         return df 
 
 
-    def _ordinal_encode (self, df, cols, ordinal_categories_list):
+    def _ordinal_encode (self, df, ord_cols, ordinal_categories_list):
         '''This function encodes ordinal variables into ordinal encoding and combines wit the rest of the dataframe'''
-        self.enc = OrdinalEncoder(categories=ordinal_categories_list)
-        df[cols] = self.enc.fit_transform(df[cols])
+        encoder = OrdinalEncoder(categories=ordinal_categories_list)
+        df[ord_cols] = encoder.fit_transform(df[ord_cols])
         return df
     
-    def _inverse_ordinal_encode (self, df, cols):
-         df[col] = self.enc.inverse_transform(df[col]) 
+    
+    def _inverse_ordinal_encode (self, df, ord_cols):
+         df[ord_cols] = self.encoder.inverse_transform(df[ord_cols]) 
           
     
     def _create_train_df(self, train_file, preprocess=True):
@@ -145,8 +146,6 @@ class Data:
         df[self.num_cols] = df[self.num_cols].astype('int') 
         return df
 
-
-
 class FeatureGenerator:
     
     def __init__(self, data):
@@ -196,16 +195,14 @@ class FeatureGenerator:
         '''Transform data and Generate Features'''
         df = self.pipeline.transform (df)
         return df
-        
-
 
 class ModelContainer:
     
     def __init__(self):
         '''initializes model list and dicts'''
         self.best_algorithm  = None
-        #self.gridcvs = {}
-        #self.scores_dict = None
+        self.gridcvs = {}
+        self.scores_dict = None
         self.best_model = None
         self.best_params  = None
         self.best_score  = 0
@@ -217,49 +214,33 @@ class ModelContainer:
         self.mean_rmse = {}
     
         
-    def nested_cross_validation(self, X_train, y_train):
+    def nested_cross_validation(self, features, target):
         '''This function performs the nested 5x2cv procedure and selects best algorithm'''
          
-        gridcvs = {}
+        self.gridcvs = {}
             
         reg1 = RandomForestRegressor(random_state=1)
         reg2 = XGBRegressor(random_state=1)
         reg3 = LGBMRegressor(random_state=1)   
         
-        
-        pipe1 = Pipeline(steps=[ 
-                            #('pol', PolynomialFeatures()), 
-                            #('sel', SelectKBest(score_func=f_regression)),
-                            ('reg1',reg1)])
-
-        pipe2 = Pipeline(steps=[
-                            #('pol', PolynomialFeatures()), 
-                            #('sel', SelectKBest(score_func=f_regression)),
-                            ('reg2',reg2)])
-
-        pipe3 = Pipeline(steps=[
-                            #('pol', PolynomialFeatures()),                     
-                            #('sel', SelectKBest(score_func=f_regression)),
-                            ('reg3',reg3)])
             
-        param_grid1 = [{'reg1__n_estimators': [500,1000]}]
+        param_grid1 = {'n_estimators': [500,1000]}
         
-        param_grid2 = [{ 'reg2__colsample_bytree':[0.6, 0.8], 
-                         'reg2__max_depth': [8,10],
-                         'reg2__min_child_weight':[3,7], 
-                         'reg2__subsample' :[0.6, 0.8]}
-                      ]
+        param_grid2 = { 'colsample_bytree':[0.6, 0.8], 
+                         'max_depth': [8,10],
+                         'min_child_weight':[3,7], 
+                         'regsubsample' :[0.6, 0.8]}
         
-        param_grid3 = [{'reg3__num_leaves': [6, 8, 20, 30],
-                        'reg3__max_depth': [2, 4, 6, 8, 10],
-                        'reg3__n_estimators': [50, 100, 200, 500],
-                        'reg3__colsample_bytree': [0.3, 1.0]}
-                      ]
+        param_grid3 = {'num_leaves': [6, 8, 20, 30],
+                        'max_depth': [2, 4, 6, 8, 10],
+                        'n_estimators': [50, 100, 200, 500],
+                        'colsample_bytree': [0.3, 1.0]}
+
     
         inner_cv = KFold(n_splits=2, shuffle=True, random_state=1)
 
         for pgrid, est, name in zip((param_grid1, param_grid2, param_grid3),
-                                    (pipe1, pipe2, pipe3),
+                                    (reg1, reg2, reg3),
                                     ('RForest','Xgboost', 'LightGBM')):
 
             gcv = GridSearchCV(estimator=est,
@@ -269,15 +250,15 @@ class ModelContainer:
                                cv=inner_cv,
                                verbose=0,
                                refit=True)
-            gridcvs[name] = gcv
+            self.gridcvs[name] = gcv
 
 
         outer_cv = KFold(n_splits=5, shuffle=True, random_state=1)
     
         for name, gs_est in sorted(gridcvs.items()):
-            scores_dict = cross_validate(gs_est, 
-                                         X=X_train, 
-                                         y=y_train,
+            self.scores_dict = cross_validate(gs_est, 
+                                         X=features, 
+                                         y=target,
                                          verbose=0,
                                          cv=outer_cv,
                                          return_estimator=True,
@@ -289,26 +270,25 @@ class ModelContainer:
             print('    Inner loop:')
 
 
-            for i in range(scores_dict['test_score'].shape[0]):
-                print('\n      Best RMSE Score (avg. of inner test folds) %.2f' % np.absolute(scores_dict['estimator'][i].best_score_))
-                print('        Best parameters:', scores_dict['estimator'][i].best_estimator_)
-                print('        RMSE Score (on outer test fold) %.2f' % np.absolute(scores_dict['test_score'][i]))
+            for i in range(self.scores_dict['test_score'].shape[0]):
+                print('\n      Best RMSE Score (avg. of inner test folds) %.2f' % np.absolute(self.scores_dict['estimator'][i].best_score_))
+                print('        Best parameters:', self.scores_dict['estimator'][i].best_estimator_)
+                print('        RMSE Score (on outer test fold) %.2f' % np.absolute(self.scores_dict['test_score'][i]))
             print('\n%s |  outer test folds Ave. Score %.2f +/- %.2f' % 
-                                  (name, np.absolute(scores_dict['test_score']).mean(), 
-                                   np.absolute(scores_dict['test_score']).std()))    
+                                  (name, np.absolute(self.scores_dict['test_score']).mean(), 
+                                   np.absolute(self.scores_dict['test_score']).std()))    
             
-            self.mean_rmse[gs_est] = np.absolute(scores_dict['test_score']).mean() 
+            self.mean_rmse[gs_est] = np.absolute(self.scores_dict['test_score']).mean() 
             
     
     def select_best_algorithm(self):
         '''select algorithm with lowest outer CV score'''
         self.best_algorithm = min (self.mean_rmse, key=self.mean_rmse.get)
-        print ('\n Best Performing Alogirthm: ', self.best_algorithm.estimator)
+        print ('\nBest Performing Algorithm: ', self.best_algorithm.estimator)
 
    
-    def tune_best_algorithm (self, X_train, X_test, y_train, y_test): 
-        '''This function performs hyperparameter tuning on the whole training set for the best algorithm and refits '''
-        
+    def tune_best_algorithm (self, feature_train, feature_test, target_train, target_test): 
+        '''This function performs hyperparameter tuning on the whole training set with the best algorithm '''
         
         grid1 = { 
                 'num_leaves': [6, 8, 20, 30],
@@ -317,25 +297,25 @@ class ModelContainer:
                 'colsample_bytree': [0.3, 1.0]
                 }
         
-        gcv_model_select = GridSearchCV(estimator=LGBMRegressor(random_state=1),
+        gcv_model_select = GridSearchCV(estimator=self.best_algorithm.estimator,
                                         param_grid=grid1,
-                                        scoring='neg_mean_absolute_error',
+                                        scoring='neg_root_mean_squared_error',
                                         n_jobs=-1,
                                         cv = 2,
                                         verbose=0,
                                         refit=True)
 
-        gcv_model_select.fit(X_train, y_train)
+        gcv_model_select.fit(feature_train, target_train)
             
         self.best_model = gcv_model_select.best_estimator_
         self.best_score = gcv_model_select.best_score_
         self.best_params = gcv_model_select.best_params_
             
-        self.train_mae = mean_absolute_error(y_true=np.exp(y_train), y_pred=np.exp(self.best_model.predict(X_train)))
-        self.test_mae  = mean_absolute_error(y_true=np.exp(y_test),  y_pred=np.exp(self.best_model.predict(X_test)))
+        self.train_mae = mean_absolute_error(y_true=np.exp(target_train), y_pred=np.exp(self.best_model.predict(feature_train)))
+        self.test_mae  = mean_absolute_error(y_true=np.exp(target_test),  y_pred=np.exp(self.best_model.predict(feature_test)))
 
-        self.train_r2 = r2_score (y_true=np.exp(y_train), y_pred=np.exp(self.best_model.predict(X_train)))
-        self.test_r2  = r2_score (y_true=np.exp(y_test),  y_pred=np.exp(self.best_model.predict(X_test)))
+        self.train_r2 = r2_score (y_true=np.exp(target_train), y_pred=np.exp(self.best_model.predict(feature_train)))
+        self.test_r2  = r2_score (y_true=np.exp(target_test),  y_pred=np.exp(self.best_model.predict(feature_test)))
 
    
 
@@ -380,11 +360,7 @@ class ModelContainer:
             
         feature_importances = self.get_feature_importance(self.best_model, data.feature_cols)
         feature_importances[0:25].plot.bar(figsize=(20,10))
-        plt.show()
-
-
-
-
+        plt.show()        
 if __name__=='__main__':
     
     train_file = "/Users/vusalbabashov/Desktop/house-prices/data/raw/train.csv"
@@ -408,7 +384,7 @@ if __name__=='__main__':
                   'BsmtFinSF2', 'BsmtUnfSF','TotalBsmtSF','1stFlrSF','2ndFlrSF','LowQualFinSF','GrLivArea',
                   'BsmtFullBath','BsmtHalfBath','FullBath','HalfBath','BedroomAbvGr','KitchenAbvGr', 'TotRmsAbvGrd',
                   'Fireplaces','GarageCars','GarageArea','WoodDeckSF','OpenPorchSF','EnclosedPorch',
-                    '3SsnPorch','ScreenPorch','PoolArea','MiscVal', 'GarageYrBlt', 'YrSold'] # removed the SalePrice
+                   '3SsnPorch','ScreenPorch','PoolArea','MiscVal', 'GarageYrBlt', 'YrSold'] # removed the SalePrice
 
     
     target_col ='SalePrice'
@@ -456,7 +432,7 @@ if __name__=='__main__':
     X_features = data.test_df.drop(columns=['Id'], axis=1)
     
     
-     #Engineer features
+    #Engineer features
     if engineer_features:
         feature_generator = FeatureGenerator(data)
         feature_generator.create_pipeline(X_train, y_train)
@@ -466,9 +442,9 @@ if __name__=='__main__':
     
        
     #Create model container
-        models = ModelContainer()
-        models.nested_cross_validation(X_train, y_train)
-        models.select_best_algorithm()
-        models.tune_best_algorithm(X_train, X_test, y_train, y_test)
-        models.best_model_predict(X_features)
-        models.print_summary()
+    models = ModelContainer()
+    models.nested_cross_validation(X_train, y_train)
+    models.select_best_algorithm()
+    models.tune_best_algorithm(X_train, X_test, y_train, y_test)
+    models.best_model_predict(X_features)
+    models.print_summary()
