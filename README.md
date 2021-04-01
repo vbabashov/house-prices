@@ -68,21 +68,21 @@ We can see overfitting due to diffence in train and test model predictive perfor
 
 - Select best models: We can then perform additional hyperparameter tuning on the LightGBM to determine the best set of parameters. This step is optional, as we have already tuned the models inside the cross-validation function using the GridSearchCV. However, one can use this step to do more substantive and wide-randing hyperparameter search. Also, instead of GridSearchCV, one can use RandomSearchCV or other parameter optimization techniques.
 
-      Best CV Score (best RMSE on Log scale): 0.09
+      Best CV Score (best RMSE on Log scale): 0.13
 
       Best Parameters: {'reg3__colsample_bytree': 0.3, 
-                                'reg3__max_depth': 6, 
+                                'reg3__max_depth': 4, 
                             'reg3__n_estimators': 100, 
-                               'reg3__num_leaves': 8}
+                               'reg3__num_leaves': 6}
                          
 
 ### 4. Deploy:
 
 - Automate pipeline: At this point, I fit the best model on the entire dataset and generate the predictions on a unseen feature dataset (e.g., test.csv).
 
-- Deploy solution: Finally, I store the predictions in a csv file, and then save the model, predictions and feature importances to the disk. Below is the figure showing top 25 important features. As we can see, LotArea, TotalArea, GrLivArea, OverallCond and OverallQual are the top 5 features with the most predictive power.
+- Deploy solution: Finally, I store the predictions in a csv file, and then save the model, predictions and feature importances to the disk. Below is the figure showing top 25 important features. As we can see, GrLivArea, LotArea, TotalArea, OverallCond and OverallQual are the top 5 features with the most predictive power.
 
-     ![test](https://user-images.githubusercontent.com/26305084/111883088-7b7c3b80-898f-11eb-821a-3772c9aa5a85.jpeg)
+      ![features](https://user-images.githubusercontent.com/26305084/113339413-6a6cec00-92f8-11eb-9aee-a7fabbd325fb.jpeg))
 
 - Measure efficacy: I'm going to skip this step, since we don't have the actual outcomes of the unseen test data.
 
