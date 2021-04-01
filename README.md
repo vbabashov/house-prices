@@ -82,7 +82,7 @@ We can see overfitting due to diffence in train and test model predictive perfor
 
 - Deploy solution: Finally, I store the predictions in a csv file, and then save the model, predictions and feature importances to the disk. Below is the figure showing top 25 important features. As we can see, GrLivArea, LotArea, TotalArea, OverallCond and OverallQual are the top 5 features with the most predictive power.
 
-      ![features](https://user-images.githubusercontent.com/26305084/113339413-6a6cec00-92f8-11eb-9aee-a7fabbd325fb.jpeg))
+     ![features](https://user-images.githubusercontent.com/26305084/113339413-6a6cec00-92f8-11eb-9aee-a7fabbd325fb.jpeg))
 
 - Measure efficacy: I'm going to skip this step, since we don't have the actual outcomes of the unseen test data.
 
