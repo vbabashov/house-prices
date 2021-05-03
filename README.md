@@ -1,3 +1,8 @@
+<p align="center">
+   <img src="https://user-images.githubusercontent.com/26305084/116904353-96d39b00-ac0b-11eb-8077-63a9208bec16.gif" />
+</p>
+
+
 # house-prices
 House Price Prediction (Python)
 
