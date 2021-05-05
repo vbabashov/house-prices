@@ -18,7 +18,7 @@ In this project, I'll develop prediction models using the house prices dataset f
 
 ### 1. Define:
 
-- Define the Problem: The objective of this supervised ML regression exercise is to determine the best model to predict the house prices.
+- Define the Problem: The objective of this supervised ML regression exercise is to determine the best model to predict the house prices in Aimes, IA.
 
 ### 2. Discover: 
 
