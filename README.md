@@ -17,10 +17,12 @@ In this project, I'll develop prediction models using the house prices dataset f
 
 
 ### 1. Define:
+***
 
 - Define the Problem: The objective of this supervised ML regression exercise is to determine the best model to predict the house prices in Aimes, IA.
 
 ### 2. Discover: 
+***
 
 - Obtain data: The raw dataset comes in train.csv featuring 81 columns and 1460 raws. The test.csv includes the features where the SalePrice is to be predicted. I'll use the test.csv data as an unseen data and generate predictions.
 
@@ -55,6 +57,7 @@ Next, we can take a look at features. There are ordinal, nominal and numeric (co
 The details of Discover stage (e.g., EDA) can be found in this [notebook](https://github.com/vbabashov/house-prices/blob/main/notebooks/EDA.ipynb).
 
 ### 3. Develop:
+***
 
 - Engineer features: Feature engineering is critical to succesful ML applications. Here, I use feature_engine Python library and sklearn's prepocessing and feature selection functions. There are ordinal variables in the dataset. I used ordinal encoding to encode the variables. Nominal variables have a lot of categories. Some of these categories don't have any observation (i.e, rare). In the preliminary analysis, I noted that one-hot encoding results in poor model peformance due to many columns with sparsity and some categories being having rare values. Instead, I looked at mean Sale Price for each category and encoded them in an increasing order. This showed better model predictive performance. I mapped the month names from numbers to string names to better reflect the nominal nature this variable. I also encoded the categories with rare values and combined them into single category called Rare. This helps to alleviate the rareness problem. And, I encoded the categories in order according to increasing mean prices. Also, I engineered four age-related features, total bath count, and total area of the house features. Finally, I log-transformed the SalePrice to minimize the impact of the outliers.
              
@@ -81,6 +84,7 @@ We can see some degree of overfitting due to diffence in training and testing mo
                          
 
 ### 4. Deploy:
+***
 
 - Automate pipeline: At this point, I fit the best model on the entire dataset and generate the predictions on a unseen feature dataset (e.g., test.csv).
 
