@@ -10,7 +10,7 @@ House Price Prediction (Python)
 - **Notebook 1: [Exploratory Data Analysis (EDA)](https://github.com/vbabashov/house-prices/blob/main/notebooks/EDA.ipynb)**
 - **Notebook 2: [Baseline Model](https://github.com/vbabashov/house-prices/blob/main/notebooks/baseline.ipynb)**
 - **Notebook 3: [ML Model Training and Prediction](https://github.com/vbabashov/house-prices/blob/main/notebooks/price_prediction.ipynb)**
-- **Object Oriented Programming** [.py file](https://github.com/vbabashov/house-prices/blob/main/src/model.py)
+- **Object Oriented Programming: [.py file](https://github.com/vbabashov/house-prices/blob/main/src/model.py)**
 
 ### Problem Statement:
 
