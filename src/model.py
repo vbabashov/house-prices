@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-# This script pulls in data, builds and tests several predictive models,and then makes predictions on test data using the best model.'''
-
-__author__ = "Vusal Babashov"
-__email__ = "vbabashov@gmail.com"
-__website__ = 'https://vbabashov.github.io'
+# This script pulls in data, builds and tests several predictive models,and then makes predictions on unseen data using the best model.'''
 
 
 import pandas as pd
@@ -12,6 +8,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 %matplotlib inline
+
+import sqlite3
+from sqlite3 import Error
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -195,7 +194,7 @@ class FeatureGenerator:
         '''Transform data and Generate Features'''
         df = self.pipeline.transform (df)
         return df
-
+                
 class ModelContainer:
     
     def __init__(self):
@@ -212,18 +211,15 @@ class ModelContainer:
         self.train_r2  = 0
         self.test_r2   = 0
         self.mean_rmse = {}
+        self.parameters = {}
     
         
     def nested_cross_validation(self, features, target):
-        '''This function performs the nested 5x2cv procedure and selects best algorithm'''
-         
-        self.gridcvs = {}
-            
+        '''This function performs the nested 5x2cv procedure and selects best algorithm'''    
         reg1 = RandomForestRegressor(random_state=1)
         reg2 = XGBRegressor(random_state=1)
         reg3 = LGBMRegressor(random_state=1)   
-        
-            
+                   
         param_grid1 = {'n_estimators': [500,1000]}
         
         param_grid2 = { 'colsample_bytree':[0.6, 0.8], 
@@ -236,6 +232,9 @@ class ModelContainer:
                         'n_estimators': [50, 100, 200, 500],
                         'colsample_bytree': [0.3, 1.0]}
 
+        
+        self.parameters= {reg1:param_grid1, reg2:param_grid2, reg3:param_grid3}
+        
     
         inner_cv = KFold(n_splits=2, shuffle=True, random_state=1)
 
@@ -255,7 +254,7 @@ class ModelContainer:
 
         outer_cv = KFold(n_splits=5, shuffle=True, random_state=1)
     
-        for name, gs_est in sorted(gridcvs.items()):
+        for name, gs_est in sorted(self.gridcvs.items()):
             self.scores_dict = cross_validate(gs_est, 
                                          X=features, 
                                          y=target,
@@ -280,25 +279,15 @@ class ModelContainer:
             
             self.mean_rmse[gs_est] = np.absolute(self.scores_dict['test_score']).mean() 
             
-    
-    def select_best_algorithm(self):
-        '''select algorithm with lowest outer CV score'''
-        self.best_algorithm = min (self.mean_rmse, key=self.mean_rmse.get)
+        self.best_algorithm = min(self.mean_rmse, key=self.mean_rmse.get)
         print ('\nBest Performing Algorithm: ', self.best_algorithm.estimator)
+    
 
    
     def tune_best_algorithm (self, feature_train, feature_test, target_train, target_test): 
         '''This function performs hyperparameter tuning on the whole training set with the best algorithm '''
-        
-        grid1 = { 
-                'num_leaves': [6, 8, 20, 30],
-                'max_depth': [2, 4, 6, 8, 10],
-                'n_estimators': [50, 100, 200, 500],
-                'colsample_bytree': [0.3, 1.0]
-                }
-        
         gcv_model_select = GridSearchCV(estimator=self.best_algorithm.estimator,
-                                        param_grid=grid1,
+                                        param_grid=self.parameters[self.best_algorithm.estimator],
                                         scoring='neg_root_mean_squared_error',
                                         n_jobs=-1,
                                         cv = 2,
@@ -360,7 +349,27 @@ class ModelContainer:
             
         feature_importances = self.get_feature_importance(self.best_model, data.feature_cols)
         feature_importances[0:25].plot.bar(figsize=(20,10))
-        plt.show()        
+        plt.show()
+    
+    
+    
+    def save_to_database (self):
+        connection = None
+        try:
+            conn = sqlite3.connect("/Users/vusalbabashov/Desktop/house-prices/reports/prediction.sqlite")
+        except Error as e:
+            print(f"The error '{e}' occurred")
+        cur = conn.cursor()
+        pd.DataFrame(self.predictions, columns = ['Log Predictions']).to_sql("pred", conn, index=False, if_exists = 'replace')
+        
+       
+    
+    
+    def read_from_database (self):
+        df = pd.read_sql_query("select * from pred;", sqlite3.connect("/Users/vusalbabashov/Desktop/house-prices/reports/prediction.sqlite"))
+        return df.head()
+
+   
 if __name__=='__main__':
     
     train_file = "/Users/vusalbabashov/Desktop/house-prices/data/raw/train.csv"
@@ -444,7 +453,8 @@ if __name__=='__main__':
     #Create model container
     models = ModelContainer()
     models.nested_cross_validation(X_train, y_train)
-    models.select_best_algorithm()
     models.tune_best_algorithm(X_train, X_test, y_train, y_test)
     models.best_model_predict(X_features)
     models.print_summary()
+    models.save_to_database()
+    
